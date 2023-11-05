@@ -20,7 +20,7 @@ const Footer = () => {
 
         <div className="text-white">
           <p className="text-xl lg:text-2xl pb-2 font-medium">Contact Us</p>
-          <div className="flex justify-between space-y-1">
+          <div className="flex gap-10">
             <div className="flex items-center gap-1">
               <span className="text-lg">
                 <BsTelephoneFill></BsTelephoneFill>
@@ -46,7 +46,7 @@ const Footer = () => {
       <h1 className="h-[.5px] rounded-full bg-white/30 my-8"></h1>
       <section className="flex gap-3 justify-between">
         <div className="text-center text-white">
-          <p>© 2023 Automotive. All Rights Reserved.</p>
+          <p>© 2023 Dream Jobs. All Rights Reserved.</p>
         </div>
         <div className="flex justify-center gap-3">
           <button className="text-gray-800 bg-white rounded-full p-2 hover:text-white hover:bg-gray-800  transition">
