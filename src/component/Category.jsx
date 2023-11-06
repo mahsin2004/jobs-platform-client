@@ -1,6 +1,18 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const Category = () => {
+  const [jobs, setJobs] = useState([])
+
+  useEffect(()=> {
+    axios.get("https://jobs-platform-server.vercel.app/jobs").then((res) => {
+      setJobs(res.data);
+      console.log(res);
+    })
+  },[])
+  console.log(jobs)
+
   return (
     <div className="max-w-[1440px] px-4 lg:px-10 mx-auto py-14">
       <div>

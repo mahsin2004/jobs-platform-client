@@ -1,5 +1,7 @@
 import Banner from "../component/Banner";
 import Category from "../component/Category";
+import ClientGuide from "../component/ClientGuide";
+import EmployGuide from "../component/EmployGuide";
 import NewsLetter from "../component/NewsLetter";
 import Statistics from "../component/Statistics";
 
@@ -9,6 +11,8 @@ const Home = () => {
       <Banner></Banner>
       <Category></Category>
       <Statistics></Statistics>
+      <ClientGuide></ClientGuide>
+      <EmployGuide></EmployGuide>
       <NewsLetter></NewsLetter>
     </div>
   );

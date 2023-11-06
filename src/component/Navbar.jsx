@@ -152,7 +152,7 @@ const Navbar = () => {
                   >
                     Log out
                   </button>
-                  <img className="w-8 rounded-full" src={user.photoURL}></img>
+                  <img className="w-8 rounded-full" src={user?.photoURL}></img>
                   {/* <div className="">
                     <div className="text-right hidden md:block lg:block">
                       <p className="text-[12px]">{user?.displayName}</p>
