@@ -36,7 +36,7 @@ const Banner = () => {
                 Trusted by:
               </span>
 
-              <div className="mt-3 flex gap-x-4">
+              <div className="mt-3 flex gap-x-10">
                 <svg
                   className="py-4 w-16 h-auto md:w-20 lg:w-24 text-gray-500"
                   xmlns="http://www.w3.org/2000/svg"
@@ -51,7 +51,7 @@ const Banner = () => {
                 </svg>
 
                 <svg
-                  className="py-4 w-16 h-auto md:w-20 lg:w-24 mx-auto text-gray-500"
+                  className="py-4 w-16 h-auto md:w-20 lg:w-24  text-gray-500"
                   xmlns="http://www.w3.org/2000/svg"
                   width="2500"
                   height="1036"

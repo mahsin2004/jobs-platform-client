@@ -1,61 +1,65 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import "react-tabs/style/react-tabs.css";
+import { Link } from "react-router-dom";
+import AllJobs from "../filterJobs/AllJobs";
+import Remote from "../filterJobs/Remote";
+import Onsite from "../filterJobs/Onsite";
+import Hybrid from "../filterJobs/Hybrid";
+import PartTime from "../filterJobs/PartTime";
 
 const Category = () => {
-  const [jobs, setJobs] = useState([])
+  const [jobs, setJobs] = useState([]);
 
-  useEffect(()=> {
+  useEffect(() => {
     axios.get("https://jobs-platform-server.vercel.app/jobs").then((res) => {
       setJobs(res.data);
       console.log(res);
-    })
-  },[])
-  console.log(jobs)
+    });
+  }, []);
+  console.log(jobs);
 
   return (
     <div className="max-w-[1440px] px-4 lg:px-10 mx-auto py-14">
-      <div>
+      <div className="text-[42px] mb-2 font-medium">
         <h1>Jobs Category</h1>
       </div>
-      <div className="">
-        <Link
-          className="mr-1 py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm dark:bg-slate-900 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800"
-          href="#"
-        >
-          Business
-        </Link>
-        <Link
-          className="m-1 py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm dark:bg-slate-900 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800"
-          href="#"
-        >
-          Strategy
-        </Link>
-        <Link
-          className="m-1 py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm dark:bg-slate-900 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800"
-          href="#"
-        >
-          Health
-        </Link>
-        <Link
-          className="m-1 py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm dark:bg-slate-900 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800"
-          href="#"
-        >
-          Creative
-        </Link>
-        <Link
-          className="m-1 py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm dark:bg-slate-900 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800"
-          href="#"
-        >
-          Environment
-        </Link>
-        <Link
-          className="m-1 py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm dark:bg-slate-900 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800"
-          href="#"
-        >
-          Adventure
-        </Link>
-      </div>
+      <Tabs>
+        <TabList className="flex gap-6 items-center mb-6">
+          <Tab className="outline-none rounded-t-md border-sky-400 border px-5 py-2">
+            <Link>All Jobs</Link>
+          </Tab>
+          <Tab className="outline-none rounded-t-md border-sky-400 border px-5 py-2">
+            <Link>Remote</Link>
+          </Tab>
+          <Tab className="outline-none rounded-t-md border-sky-400 border px-5 py-2">
+            <Link>On Site</Link>
+          </Tab>
+          <Tab className="outline-none rounded-t-md border-sky-400 border px-5 py-2">
+            <Link>Hybrid</Link>
+          </Tab>
+          <Tab className="outline-none rounded-t-md border-sky-400 border px-5 py-2">
+            <Link>Part Time</Link>
+          </Tab>
+        </TabList>
+
+        <TabPanel>
+          <h2><AllJobs></AllJobs></h2>
+        </TabPanel>
+        <TabPanel>
+          <h2><Remote></Remote></h2>
+        </TabPanel>
+        <TabPanel>
+          <h2><Onsite></Onsite></h2>
+        </TabPanel>
+        <TabPanel>
+          <h2><Hybrid></Hybrid></h2>
+        </TabPanel>
+        <TabPanel>
+          <h2><PartTime></PartTime></h2>
+        </TabPanel>
+      </Tabs>
     </div>
   );
 };

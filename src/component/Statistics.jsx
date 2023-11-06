@@ -1,7 +1,7 @@
 const Statistics = () => {
   return (
     <div>
-      <div className="max-w-[1440px] px-4 py-10 sm:px-6 lg:px-10 lg:py-14 mx-auto">
+      <div className="max-w-[1440px] px-4 py-2 sm:px-6 lg:px-10 lg:py-4 mx-auto">
         <div className="grid items-center lg:grid-cols-12 gap-6 lg:gap-12">
           <div className="lg:col-span-4">
             <div className="lg:pr-6 xl:pr-12">
@@ -29,17 +29,17 @@ const Statistics = () => {
 
           <div className="lg:col-span-8 relative lg:before:absolute lg:before:top-0 lg:before:-left-12 lg:before:w-px lg:before:h-full lg:before:bg-gray-200 lg:before:dark:bg-gray-700">
             <div className="grid gap-6 grid-cols-2 md:grid-cols-4 lg:grid-cols-3 sm:gap-8">
-              <div>
+              <div className="mx-auto">
                 <p className="text-3xl font-semibold text-blue-500">99.95%</p>
                 <p className="mt-1 text-gray-500">in fulfilling orders</p>
               </div>
 
-              <div>
+              <div className="mx-auto">
                 <p className="text-3xl font-semibold text-blue-500">2,000+</p>
                 <p className="mt-1 text-gray-500">partner with Preline</p>
               </div>
 
-              <div>
+              <div className="mx-auto">
                 <p className="text-3xl font-semibold text-blue-500">85%</p>
                 <p className="mt-1 text-gray-500">this year alone</p>
               </div>
