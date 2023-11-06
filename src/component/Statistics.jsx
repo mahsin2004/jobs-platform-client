@@ -1,7 +1,7 @@
 const Statistics = () => {
   return (
     <div>
-      <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+      <div className="max-w-[1440px] px-4 py-10 sm:px-6 lg:px-10 lg:py-14 mx-auto">
         <div className="grid items-center lg:grid-cols-12 gap-6 lg:gap-12">
           <div className="lg:col-span-4">
             <div className="lg:pr-6 xl:pr-12">

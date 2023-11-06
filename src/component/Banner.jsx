@@ -1,6 +1,6 @@
 const Banner = () => {
   return (
-    <div className="max-w-[1440px] mx-auto px-8 py-14">
+    <div className="max-w-[1440px] mx-auto px-4 lg:px-10 py-14">
       <div className="max-w-[85rem] mx-auto">
         <div className="grid lg:grid-cols-7 lg:gap-x-8 xl:gap-x-12 lg:items-center">
           <div className="lg:col-span-3">

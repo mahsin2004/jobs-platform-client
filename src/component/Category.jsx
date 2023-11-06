@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Category = () => {
   return (
-    <div className="max-w-[1440px] px-8 mx-auto py-14">
+    <div className="max-w-[1440px] px-4 lg:px-10 mx-auto py-14">
       <div>
         <h1>Jobs Category</h1>
       </div>
