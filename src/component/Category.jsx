@@ -18,7 +18,6 @@ const Category = () => {
       console.log(res);
     });
   }, []);
-  console.log(jobs);
 
   return (
     <div className="max-w-[1440px] px-4 lg:px-10 mx-auto py-14">
