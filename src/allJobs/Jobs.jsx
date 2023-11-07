@@ -37,7 +37,7 @@ const Jobs = () => {
     <div className="max-w-[1440px] mx-auto px-6 lg:px-16 py-14">
       <div className="mb-14">
         <h1 className="text text-4xl lg:text-4xl font-medium text-center">
-          Search Jobs By Title
+        Search By Job Title
         </h1>
         <div className="mt-5 lg:mt-8 flex flex-col items-center gap-2 sm:flex-row sm:gap-3">
           <div className="w-full sm:w-auto mx-auto">
@@ -48,7 +48,7 @@ const Jobs = () => {
                 id="hero-input"
                 name="name"
                 required
-                className="py-3 px-4 border-2 block w-full min-w-[18rem] border-gray-200 shadow-sm rounded-md dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
+                className="py-3 px-4 border block w-full min-w-[18rem] border-gray-200 shadow-sm rounded-md dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
                 placeholder="enter job title"
               />
               <button

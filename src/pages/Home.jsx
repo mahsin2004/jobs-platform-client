@@ -7,7 +7,7 @@ import Statistics from "../component/Statistics";
 
 const Home = () => {
   return (
-    <div>
+    <div className="bg-white dark:bg-black">
       <Banner></Banner>
       <Statistics></Statistics>
       <Category></Category>

@@ -1,33 +1,33 @@
 const Banner = () => {
   return (
-    <div className="max-w-[1440px] mx-auto px-4 lg:px-10 py-14">
-      <div className="max-w-[85rem] mx-auto">
-        <div className="grid lg:grid-cols-7 lg:gap-x-8 xl:gap-x-12 lg:items-center">
+    <div className="max-w-[1440px] mx-auto px-4 lg:px-10 pt-20 pb-8">
+      <div className="">
+        <div className="flex justify-between lg:items-center">
           <div className="lg:col-span-3">
-            <h1 className="block text-3xl font-bold text-gray-800 sm:text-4xl md:text-5xl lg:text-6xl dark:text-white">
-              Find the best jobs that suit your comfort.
+            <h1 className="block text-3xl font-bold text-gray-700 sm:text-4xl md:text-5xl lg:text-6xl dark:text-white">
+              Find the best jobs that suit <br />  your comfort.
             </h1>
-            <p className="mt-3 text-lg text-gray-800 dark:text-gray-400">
+            <p className="mt-3 text-lg text-gray-700 dark:text-gray-400">
               Browse jobs posted on Dream Jobs, or jump right in and create a
-              free profile to find the work that you love to do.
+              free <br /> profile to find the work that you love to do.
             </p>
 
             <div className="mt-5 lg:mt-8 flex flex-col items-center gap-2 sm:flex-row sm:gap-3">
-              <div className="w-full sm:w-auto">
+              <div className="w-3/5">
                 <label className="sr-only">Search</label>
                 <input
                   type="text"
                   id="hero-input"
                   name="hero-input"
-                  className="py-3 px-4 block w-full xl:min-w-[18rem] border-gray-200 shadow-sm rounded-md focus:z-10 focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
-                  placeholder="Enter work email"
+                  className="py-4 px-4 border block w-full xl:min-w-[18rem] border-gray-200 shadow-sm rounded-md focus:z-10 focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
+                  placeholder="Enter Job title"
                 />
               </div>
               <a
-                className="w-full sm:w-auto inline-flex justify-center items-center gap-x-3 text-center bg-blue-600 hover:bg-blue-700 border border-transparent text-white font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-white transition py-3 px-4 dark:focus:ring-offset-gray-800"
+                className="w-full sm:w-auto inline-flex justify-center items-center gap-x-3 text-center bg-blue-600 hover:bg-blue-700 border border-transparent text-white font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-white transition py-4 px-6 dark:focus:ring-offset-gray-800"
                 href="#"
               >
-                Request demo
+                Search
               </a>
             </div>
 
@@ -95,12 +95,14 @@ const Banner = () => {
             </div>
           </div>
 
+          <div className="hidden lg:block">
           <div className="lg:col-span-4 mt-10 lg:mt-0">
             <img
-              className="w-full rounded-xl"
-              src="https://images.unsplash.com/photo-1665686376173-ada7a0031a85?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=900&h=700&q=80"
+              className="w-[500px] rounded-xl"
+              src="https://i.postimg.cc/NF6p9WLz/bannder455.png"
               alt="Image Description"
             />
+          </div>
           </div>
         </div>
       </div>

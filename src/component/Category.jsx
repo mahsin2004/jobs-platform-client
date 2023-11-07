@@ -11,25 +11,25 @@ import PartTime from "../filterJobs/PartTime";
 const Category = () => {
 
   return (
-    <div className="max-w-[1440px] px-4 lg:px-10 mx-auto py-14">
-      <div className="text-[42px] mb-2 font-medium">
+    <div className="max-w-[1440px] px-6 lg:px-10 mx-auto py-14">
+      <div className="text-[42px] text-gray-700 mb-3 font-semibold">
         <h1>Jobs Category</h1>
       </div>
       <Tabs>
-        <TabList className="flex gap-6 items-center mb-6">
-          <Tab className="outline-none rounded-t-md border-sky-400 border px-5 py-2">
+        <TabList className="flex gap-6 items-center mb-6 ">
+          <Tab className="rounded-md  bg-gray-600 text-white px-4 py-2">
             <Link>All Jobs</Link>
           </Tab>
-          <Tab className="outline-none rounded-t-md border-sky-400 border px-5 py-2">
+          <Tab className=" rounded-md border-none bg-gray-600 text-white px-4 py-2">
             <Link>Remote</Link>
           </Tab>
-          <Tab className="outline-none rounded-t-md border-sky-400 border px-5 py-2">
+          <Tab className="rounded-md border-none bg-gray-600 text-white px-4 py-2">
             <Link>On Site</Link>
           </Tab>
-          <Tab className="outline-none rounded-t-md border-sky-400 border px-5 py-2">
+          <Tab className="rounded-md border-none bg-gray-600 text-white px-4 py-2">
             <Link>Hybrid</Link>
           </Tab>
-          <Tab className="outline-none rounded-t-md border-sky-400 border px-5 py-2">
+          <Tab className="rounded-md border-none bg-gray-600 text-white px-4 py-2">
             <Link>Part Time</Link>
           </Tab>
         </TabList>
