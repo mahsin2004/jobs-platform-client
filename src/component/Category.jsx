@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import { Link } from "react-router-dom";
@@ -10,14 +9,6 @@ import Hybrid from "../filterJobs/Hybrid";
 import PartTime from "../filterJobs/PartTime";
 
 const Category = () => {
-  const [jobs, setJobs] = useState([]);
-
-  useEffect(() => {
-    axios.get("https://jobs-platform-server.vercel.app/jobs").then((res) => {
-      setJobs(res.data);
-      console.log(res);
-    });
-  }, []);
 
   return (
     <div className="max-w-[1440px] px-4 lg:px-10 mx-auto py-14">

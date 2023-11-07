@@ -1,15 +1,20 @@
-import axios from "axios";
+
 import { useEffect, useState } from "react";
 import Cart from "../component/Cart";
+import useAxiosSecure from "../hook/useAxiosSecure";
 
 
 const AllJobs = () => {
     const [jobs, setJobs] = useState([])
-    useEffect(()=> {
-        axios.get("https://jobs-platform-server.vercel.app/jobs")
-        .then(res => setJobs(res.data))
-    },[])
-    
+    const axiosSecure = useAxiosSecure();
+
+    useEffect(() => {
+      axiosSecure.get("/jobs").then((res) => {
+        setJobs(res.data);
+        console.log(res);
+      });
+    }, [axiosSecure]);
+
     return (
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {

@@ -1,14 +1,17 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import Cart from "../component/Cart";
+import useAxiosSecure from "../hook/useAxiosSecure";
 
 const PartTime = () => {
   const [jobs, setJobs] = useState([]);
+  const axiosSecure = useAxiosSecure();
+
   useEffect(() => {
-    axios
-      .get("https://jobs-platform-server.vercel.app/jobs")
-      .then((res) => setJobs(res.data));
-  }, []);
+    axiosSecure.get("/jobs").then((res) => {
+      setJobs(res.data);
+      console.log(res);
+    });
+  }, [axiosSecure]);
 
   const partTime = jobs.filter((job) => job.job_category === "Part Time");
 

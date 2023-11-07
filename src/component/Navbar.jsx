@@ -23,7 +23,7 @@ const Navbar = () => {
         </li>
       </NavLink>
       <NavLink
-        to="/addProduct"
+        to="/jobs"
         className={({ isActive, isPending }) =>
           isPending ? "pending" : isActive ? "text-red-400" : ""
         }
@@ -63,7 +63,7 @@ const Navbar = () => {
         </li>
       </NavLink>
       <NavLink
-        to="/myCart"
+        to="/blog"
         className={({ isActive, isPending }) =>
           isPending ? "pending" : isActive ? "text-red-400" : ""
         }
@@ -76,8 +76,8 @@ const Navbar = () => {
   );
 
   return (
-    <div className="sticky top-0 z-10 w-full max-w-[1440px] mx-auto bg-base-100 border-base-200 lg:px-4">
-      <div className="navbar">
+    <div className="sticky top-0 z-10  bg-base-100 drop-shadow-sm border-b-2 border-base-200 py-2 px-2 lg:px-4">
+      <div className="navbar w-full max-w-[1440px] mx-auto">
         <div className="navbar-start w-1/4">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">

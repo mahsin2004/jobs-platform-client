@@ -35,7 +35,7 @@ const Cart = ({ job }) => {
             {job_title}
           </h2>
           <div>
-            <p className="text-sm text-center py-1  rounded-sm bg-gray-100 w-[39%] text-gray-700 dark:text-gray-400">
+            <p className="mb-5 inline-flex items-center gap-1.5 py-1.5 px-3 rounded-md text-base font-medium bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-200">
               {salary_range}
             </p>
             <p className="text-sm mt-1">{application_deadline}</p>
