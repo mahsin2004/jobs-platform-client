@@ -1,120 +1,147 @@
-// import Swal from "sweetalert2";
+import useAuth from "../hook/useAuth";
+import useAxiosSecure from "../hook/useAxiosSecure";
 
-const AddProduct = () => {
+const AddJob = () => {
+  const { user } = useAuth();
+  const axiosSecure = useAxiosSecure();
+
   const addProduct = (e) => {
     e.preventDefault();
     const form = e.target;
-    const name = form.name.value;
-    const brandName = form.brandName.value;
-    const type = form.type.value;
-    const price = form.price.value;
-    const rating = form.rating.value;
-    const shortDescription = form.shortDescription.value;
-    const image = form.image.value;
+    const user_name = form.name.value;
+    const job_title = form.jobTitle.value;
+    const job_category = form.category.value;
+    const salary_range = form.salary.value;
+    const job_posting_date = form.postingDate.value;
+    const application_deadline = form.deadline.value;
+    const job_description = form.description.value;
+    const job_applicants_number = form.applicants.value;
+    const job_banner = form.image.value;
+    const email = user?.email;
+    const logo = user?.photoURL;
+
     const brand = {
-      name,
-      brandName,
-      type,
-      price,
-      rating,
-      shortDescription,
-      image,
+      application_deadline,
+      email,
+      job_applicants_number,
+      job_banner,
+      job_category,
+      job_description,
+      job_posting_date,
+      job_title,
+      logo,
+      salary_range,
+      user_name,
     };
     console.log(brand);
-
-//     fetch(
-//       "https://brand-shop-server-ee5q1ivi9-mahsin2004s-projects.vercel.app/brands",
-//       {
-//         method: "POST",
-//         headers: {
-//           "content-type": "application/json",
-//         },
-//         body: JSON.stringify(brand),
-//       }
-//     )
-//       .then((res) => res.json())
-//       .then((data) => {
-//         console.log(data);
-//         if (data.insertedId) {
-//           Swal.fire({
-//             title: "Successfully",
-//             text: "Product Adding",
-//             icon: "success",
-//             confirmButtonText: "oky",
-//           });
-//           form.reset();
-//         }
-//       });
+    axiosSecure.post("/jobs", brand).then((res) => {
+      console.log(res.data);
+      const data = res.data
+      if(data.insertedId){
+          
+          form.reset()
+      }
+    });
   };
 
   return (
     <div className="max-w-[991px] mx-auto my-16 px-5">
       <div className="bg-base-200 mt-6 md:px-10 px-2 lg:px-20 py-12">
         <div className="mx-auto text-center max-w-[600px]">
-          <h1 className=" text-3xl lg:text-[45px]">Post New Job</h1>
+          <h1 className=" text-2xl lg:text-4xl font-semibold pb-5">
+            Add New Job
+          </h1>
         </div>
         <form onSubmit={addProduct} className="">
           <div className=" grid lg:grid-cols-2 gap-4">
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Name</span>
+                <span className="label-text">User Name</span>
               </label>
               <input
                 type="text"
                 name="name"
                 placeholder="Enter name"
+                defaultValue={user?.displayName}
                 className="input input-bordered"
+                readOnly
                 required
               />
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Brand Name</span>
+                <span className="label-text">Job Title</span>
               </label>
               <input
                 type="text"
-                name="brandName"
-                placeholder="Enter brand name"
+                name="jobTitle"
+                placeholder="Enter Job Title"
                 className="input input-bordered"
                 required
               />
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Select Type</span>
+                <span className="label-text">Select Category</span>
               </label>
-              <select 
-                name="type"
+              <select
+                name="category"
                 placeholder="select type"
                 className="input input-bordered"
                 required
-                >
-                <option value="car">car</option>
-                <option value="bus">bus</option>
-                <option value="mini">mini bus</option>
-                <option value="truck">truck</option>
+              >
+                <option value="On Site">On Site</option>
+                <option value="Remote">Remote</option>
+                <option value="Hybrid">Hybrid</option>
+                <option value="Part Time">Part Time</option>
               </select>
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Price</span>
+                <span className="label-text">Salary range</span>
               </label>
               <input
                 type="text"
-                name="price"
-                placeholder="Enter price"
+                name="salary"
+                placeholder="Enter salary range"
                 className="input input-bordered"
                 required
               />
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Rating</span>
+                <span className="label-text">Job Posting Date</span>
               </label>
               <input
                 type="text"
-                name="rating"
+                name="postingDate"
                 placeholder="Enter rating"
+                className="input input-bordered"
+                required
+              />
+            </div>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Application Deadline</span>
+              </label>
+              <input
+                type="text"
+                name="deadline"
+                placeholder="Enter rating"
+                className="input input-bordered"
+                required
+              />
+            </div>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Job Applicants</span>
+              </label>
+              <input
+                type="text"
+                name="applicants"
+                placeholder="Enter rating"
+                defaultValue='0'
+                readOnly
                 className="input input-bordered"
                 required
               />
@@ -125,20 +152,20 @@ const AddProduct = () => {
               </label>
               <input
                 type="text"
-                name="shortDescription"
-                placeholder="Enter short description"
+                name="description"
+                placeholder="Enter job description"
                 className="input input-bordered"
                 required
               />
             </div>
             <div className="form-control lg:col-span-2">
               <label className="label">
-                <span className="label-text">Image Link</span>
+                <span className="label-text">Job Banner Link</span>
               </label>
               <input
                 type="text"
                 name="image"
-                placeholder="Enter image URL"
+                placeholder="Enter Banner URL"
                 className="input input-bordered"
                 required
               />
@@ -148,7 +175,7 @@ const AddProduct = () => {
                 type="submit"
                 className="py-3 bg-slate-700  text-white font-medium px-5 rounded-md"
               >
-                Post
+                Add
               </button>
             </div>
           </div>
@@ -158,4 +185,4 @@ const AddProduct = () => {
   );
 };
 
-export default AddProduct;
+export default AddJob;
