@@ -33,36 +33,6 @@ const Navbar = () => {
         </li>
       </NavLink>
       <NavLink
-        to="/addProduct"
-        className={({ isActive, isPending }) =>
-          isPending ? "pending" : isActive ? "text-red-400" : ""
-        }
-      >
-        <li className="py-2 px-4 text-base hover:text-red-400 font-medium">
-        Applied Jobs
-        </li>
-      </NavLink>
-      <NavLink
-        to="/addProduct"
-        className={({ isActive, isPending }) =>
-          isPending ? "pending" : isActive ? "text-red-400" : ""
-        }
-      >
-        <li className="py-2 px-4 text-base hover:text-red-400 font-medium">
-        My Jobs
-        </li>
-      </NavLink>
-      <NavLink
-        to="/addJob"
-        className={({ isActive, isPending }) =>
-          isPending ? "pending" : isActive ? "text-red-400" : ""
-        }
-      >
-        <li className="py-2 px-4 text-base hover:text-red-400 font-medium">
-          Add A Job
-        </li>
-      </NavLink>
-      <NavLink
         to="/blog"
         className={({ isActive, isPending }) =>
           isPending ? "pending" : isActive ? "text-red-400" : ""
@@ -72,6 +42,42 @@ const Navbar = () => {
           Blogs
         </li>
       </NavLink>
+      {user ? (
+        <>
+          <NavLink
+            to="/appliedJobs"
+            className={({ isActive, isPending }) =>
+              isPending ? "pending" : isActive ? "text-red-400" : ""
+            }
+          >
+            <li className="py-2 px-4 text-base hover:text-red-400 font-medium">
+              Applied Jobs
+            </li>
+          </NavLink>
+          <NavLink
+            to="/myJobs"
+            className={({ isActive, isPending }) =>
+              isPending ? "pending" : isActive ? "text-red-400" : ""
+            }
+          >
+            <li className="py-2 px-4 text-base hover:text-red-400 font-medium">
+              My Jobs
+            </li>
+          </NavLink>
+          <NavLink
+            to="/addJob"
+            className={({ isActive, isPending }) =>
+              isPending ? "pending" : isActive ? "text-red-400" : ""
+            }
+          >
+            <li className="py-2 px-4 text-base hover:text-red-400 font-medium">
+              Add A Job
+            </li>
+          </NavLink>
+        </>
+      ) : (
+        ""
+      )}
     </>
   );
 

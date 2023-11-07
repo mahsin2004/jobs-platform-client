@@ -7,6 +7,9 @@ import Home from "../pages/Home";
 import Blog from "../pages/Blog";
 import Jobs from "../allJobs/Jobs";
 import AddJob from "../pages/AddJob";
+import AppliedJobs from "../pages/AppliedJobs";
+import MyJobs from "../pages/MyJobs";
+import PrivetRoute from "./PrivetRoute";
 
 
 const Router = createBrowserRouter([
@@ -29,15 +32,23 @@ const Router = createBrowserRouter([
       },
       {
         path: "/addJob",
-        element: <AddJob></AddJob>
+        element: <PrivetRoute><AddJob></AddJob></PrivetRoute>
       },
       {
-        path: "/jobs",
+        path: "/jobs", //All jobs
         element: <Jobs></Jobs>
       },
       {
         path: "/blog",
         element: <Blog></Blog>
+      },
+      {
+        path: "/appliedJobs",
+        element: <PrivetRoute><AppliedJobs></AppliedJobs></PrivetRoute>
+      },
+      {
+        path: "/myJobs",
+        element: <PrivetRoute><MyJobs></MyJobs></PrivetRoute> 
       }
     ]
   },

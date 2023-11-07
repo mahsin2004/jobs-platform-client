@@ -72,7 +72,7 @@ const Blog = () => {
       <div className=" pb-5 lg:pb-16">
         <div>
           <p className="mb-5 inline-flex items-center gap-1.5 border-l-8 py-3 px-3 rounded-md text-4xl font-semibold  text-gray-800 dark:bg-gray-800 dark:text-gray-200">
-            What is express js? What is Nest JS?
+            What is express js? What is Node Js?
           </p>
         </div>
         <div className="grid sm:grid-cols-2 sm:items-center gap-8">
