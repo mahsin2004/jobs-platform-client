@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 
 const MyCart = ({ job }) => {
   const handleDelete = (id) => {
-    axios.delete(`http://localhost:5000/jobs/${id}`).then((res) => {
+    axios.delete(`https://jobs-platform-server.vercel.app/jobs/${id}`).then((res) => {
       console.log(res.data);
       if (res.data.deletedCount > 0) {
         Swal.fire({

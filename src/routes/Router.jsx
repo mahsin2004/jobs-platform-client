@@ -55,12 +55,12 @@ const Router = createBrowserRouter([
       {
         path: "/details/:id",
         element: <PrivetRoute><Details></Details></PrivetRoute>,
-        loader: ({params}) => fetch(`http://localhost:5000/jobs/${params.id}`)
+        loader: ({params}) => fetch(`https://jobs-platform-server.vercel.app/jobs/${params.id}`)
       },
       {
         path: "/update/:id",
         element:<Update></Update>,
-        loader: ({params}) => fetch(`http://localhost:5000/jobs/${params.id}`)
+        loader: ({params}) => fetch(`https://jobs-platform-server.vercel.app/jobs/${params.id}`)
       }
     ]
   },
