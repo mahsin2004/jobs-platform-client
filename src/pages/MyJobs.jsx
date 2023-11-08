@@ -2,20 +2,39 @@ import { useEffect, useState } from "react";
 import useAxiosSecure from "../hook/useAxiosSecure";
 import useAuth from "../hook/useAuth";
 import MyCart from "../component/MyCart";
+import { useNavigate } from "react-router-dom";
 
 
 
 const MyJobs = () => {
-  const { user } = useAuth()
   const [jobs, setJobs] = useState([]);
+  const { user, logOutUser } = useAuth();
   const axiosSecure = useAxiosSecure();
 
+  const navigate = useNavigate();
+    useEffect(() => {
+      axiosSecure.interceptors.response.use(
+        (res) => {
+          return res;
+        },
+        (error) => {
+          if (error.response.status === 401 || error.response.status === 403) {
+            logOutUser()
+              .then(() => {
+                navigate("/login");
+              })
+              .catch((error) => console.error(error));
+          }
+        }
+      );
+    }, [logOutUser, navigate, axiosSecure]);
+
   useEffect(() => {
-    axiosSecure.get("/jobs").then((res) => {
+    axiosSecure.get(`/jobs/?email=${user.email}`).then((res) => {
       setJobs(res.data);
       console.log(res);
     });
-  }, [axiosSecure]);
+  }, [axiosSecure, user]);
 
  const myJobs = jobs.filter(job => job.email === user.email)
  console.log(myJobs)
@@ -39,7 +58,7 @@ const MyJobs = () => {
           </div>
         </div>
       </div>
-      <div>
+      <div >
         {
             myJobs.map(job => <MyCart key={job._id} job={job}></MyCart>)
         }
