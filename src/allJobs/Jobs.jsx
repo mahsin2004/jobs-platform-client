@@ -7,7 +7,6 @@ const Jobs = () => {
   const [filteredJobs, setFilteredJobs] = useState([]);
   const [noDataFound, setNoDataFound] = useState(false);
   const axiosSecure = useAxiosSecure();
-
   useEffect(() => {
     axiosSecure.get("/jobs").then((res) => {
       setJobs(res.data);
