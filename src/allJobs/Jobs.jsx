@@ -36,23 +36,23 @@ const Jobs = () => {
   return (
     <div className="max-w-[1440px] mx-auto px-6 lg:px-16 py-14">
       <div className="mb-14">
-        <h1 className="text text-4xl lg:text-4xl font-medium text-center">
+        <h1 className="text-2xl lg:text-4xl font-medium text-center">
         Search By Job Title
         </h1>
         <div className="mt-5 lg:mt-8 flex flex-col items-center gap-2 sm:flex-row sm:gap-3">
           <div className="w-full sm:w-auto mx-auto">
-            <form onSubmit={takeValue} className="flex gap-2 ">
+            <form onSubmit={takeValue} className="lg:flex lg:gap-2 ">
               <label className="sr-only">Search</label>
               <input
                 type="text"
                 id="hero-input"
                 name="name"
                 required
-                className="py-3 px-4 border block w-full min-w-[18rem] border-gray-200 shadow-sm rounded-md dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
+                className="px-2 py-2 lg:py-4 lg:px-4 border block w-full lg:min-w-[18rem] border-gray-200 shadow-sm rounded-md dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
                 placeholder="enter job title"
               />
               <button
-                className="w-full sm:w-auto inline-flex justify-center items-center gap-x-3 text-center bg-blue-600 hover:bg-blue-700 border border-transparent text-white font-medium rounded-md  py-3 px-4 dark:focus:ring-offset-gray-800"
+                className="w-full mt-2 lg:mt-0 sm:w-auto inline-flex justify-center items-center gap-x-3 text-center bg-blue-600 hover:bg-blue-700 border border-transparent text-white font-medium rounded-md px-2 py-2 lg:py-4 lg:px-4 dark:focus:ring-offset-gray-800"
                 href="#"
               >
                 Search

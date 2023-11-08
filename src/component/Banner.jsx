@@ -1,6 +1,6 @@
 const Banner = () => {
   return (
-    <div className="max-w-[1440px] mx-auto px-4 lg:px-10 pt-20 pb-8">
+    <div className="max-w-[1440px] pt-10 mx-auto px-4 lg:px-10 lg:pt-20 pb-8">
       <div className="">
         <div className="flex justify-between lg:items-center">
           <div className="lg:col-span-3">
@@ -13,30 +13,30 @@ const Banner = () => {
             </p>
 
             <div className="mt-5 lg:mt-8 flex flex-col items-center gap-2 sm:flex-row sm:gap-3">
-              <div className="w-3/5">
+              <div className="w-full lg:w-3/5">
                 <label className="sr-only">Search</label>
                 <input
                   type="text"
                   id="hero-input"
                   name="hero-input"
-                  className="py-4 px-4 border block w-full xl:min-w-[18rem] border-gray-200 shadow-sm rounded-md focus:z-10 focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
+                  className="px-2 py-2 lg:py-4 lg:px-4 border block w-full xl:min-w-[18rem] border-gray-200 shadow-sm rounded-md focus:z-10 focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
                   placeholder="Enter Job title"
                 />
               </div>
               <a
-                className="w-full sm:w-auto inline-flex justify-center items-center gap-x-3 text-center bg-blue-600 hover:bg-blue-700 border border-transparent text-white font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-white transition py-4 px-6 dark:focus:ring-offset-gray-800"
+                className="w-full sm:w-auto inline-flex justify-center items-center gap-x-3 text-center bg-blue-600 hover:bg-blue-700 border border-transparent text-white font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-white transition px-2 py-2 lg:py-4 lg:px-6 dark:focus:ring-offset-gray-800"
                 href="#"
               >
                 Search
               </a>
             </div>
 
-            <div className="mt-6 lg:mt-12">
+            <div className="mt-5 lg:mt-12">
               <span className="text-xs font-medium text-gray-800 uppercase dark:text-gray-200">
                 Trusted by:
               </span>
 
-              <div className="mt-3 flex gap-x-10">
+              <div className="lg:mt-3 flex gap-x-10">
                 <svg
                   className="py-4 w-16 h-auto md:w-20 lg:w-24 text-gray-500"
                   xmlns="http://www.w3.org/2000/svg"

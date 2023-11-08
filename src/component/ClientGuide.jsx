@@ -5,17 +5,17 @@ import { Link } from "react-router-dom";
 
 const ClientGuide = () => {
   return (
-    <div className="py-28 px-8 max-w-[1440px] mx-auto ">
+    <div className="py-10 lg:py-28 px-8 max-w-[1440px] mx-auto ">
       <div className="lg:flex lg:gap-6 lg:justify-between lg:items-center">
-        <div>
+        <div className="">
           <img
             className="lg:w-[550px]"
             src="https://i.postimg.cc/7ZRGBvC7/client-Guide.gif"
             alt="animation"
           />
         </div>
-        <div className="space-y-6">
-          <h2 className=" text-5xl font-semibold text-gray-700">
+        <div className="space-y-6 mt-12 lg:m-0">
+          <h2 className="text-3xl lg:text-5xl font-semibold text-gray-700">
             Up your work game, it’s easy
           </h2>
           <div className="space-y-5">
@@ -57,11 +57,13 @@ const ClientGuide = () => {
             </div>
           </div>
 
-          <div className="mt-4">
+          <div className="mt-4 lg:flex lg:items-center">
+            <div className="">
             <Link to="/register" className="text-xl bg-gray-700 text-white px-6 py-3 rounded-full mr-4">
               Register for free
             </Link>
-            <button className="text-xl border-gray-800 border-2 text-gray-700 px-6 py-2 rounded-full">
+            </div>
+            <button className="text-xl mt-5 lg:mt-0 border-gray-800 border-2 text-gray-700 px-6 py-2 rounded-full">
               Learn how to hire
             </button>
           </div>

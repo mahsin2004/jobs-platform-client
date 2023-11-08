@@ -44,7 +44,7 @@ const Register = () => {
   return (
     <div>
       <div className="dark:bg-slate-900 bg-gray-100 flex items-center pb-16 pt-6">
-        <div className="w-full max-w-xl  mx-auto p-7">
+        <div className="w-full max-w-[800px]  mx-auto p-7">
           <div className="mt-7 bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-gray-800 dark:border-gray-700">
             <div className="pt-4 px-4 sm:px-7 sm:pt-7">
               <div className="text-center">

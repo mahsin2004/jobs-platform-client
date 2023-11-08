@@ -12,11 +12,11 @@ const Category = () => {
 
   return (
     <div className="max-w-[1440px] px-6 lg:px-10 mx-auto py-14">
-      <div className="text-[42px] text-gray-700 mb-3 font-semibold">
+      <div className="text-2xl lg:text-[42px] text-gray-700 mb-3 font-semibold">
         <h1>Jobs Category</h1>
       </div>
       <Tabs>
-        <TabList className="flex gap-6 items-center mb-6 ">
+        <TabList className="space-y-1 lg:flex gap-6 items-center mb-6 ">
           <Tab className="rounded-md  bg-gray-600 text-white px-4 py-2">
             <Link>All Jobs</Link>
           </Tab>

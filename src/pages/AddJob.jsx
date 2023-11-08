@@ -1,9 +1,15 @@
+import { useState } from "react";
 import useAuth from "../hook/useAuth";
 import useAxiosSecure from "../hook/useAxiosSecure";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import Swal from "sweetalert2";
 
 const AddJob = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
 
   const addProduct = (e) => {
     e.preventDefault();
@@ -36,27 +42,33 @@ const AddJob = () => {
     console.log(brand);
     axiosSecure.post("/jobs", brand).then((res) => {
       console.log(res.data);
-      const data = res.data
-      if(data.insertedId){
-          
-          form.reset()
+      if (res.data.acknowledged) {
+        Swal.fire({
+          title: "Successfully",
+          text: "New Job Added",
+          icon: "success",
+          confirmButtonText: "oky",
+        });
+        form.reset();
+        setEndDate(null);
+        setStartDate(null);
       }
     });
   };
 
   return (
     <div className="max-w-[991px] mx-auto my-16 px-5">
-      <div className="bg-base-200 mt-6 md:px-10 px-2 lg:px-20 py-12">
+      <div className="mt-6 md:px-10 px-2 lg:px-20 lg:py-12">
         <div className="mx-auto text-center max-w-[600px]">
-          <h1 className=" text-2xl lg:text-4xl font-semibold pb-5">
-            Add New Job
+          <h1 className=" text-3xl text-gray-800 lg:text-5xl font-semibold pb-8">
+            ADD NEW JOB
           </h1>
         </div>
         <form onSubmit={addProduct} className="">
           <div className=" grid lg:grid-cols-2 gap-4">
             <div className="form-control">
               <label className="label">
-                <span className="label-text">User Name</span>
+                <span className="label-text text-lg">User Name</span>
               </label>
               <input
                 type="text"
@@ -70,7 +82,7 @@ const AddJob = () => {
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Job Title</span>
+                <span className="label-text text-lg">Job Title</span>
               </label>
               <input
                 type="text"
@@ -82,7 +94,7 @@ const AddJob = () => {
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Select Category</span>
+                <span className="label-text text-lg">Select Category</span>
               </label>
               <select
                 name="category"
@@ -98,49 +110,51 @@ const AddJob = () => {
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Salary range</span>
+                <span className="label-text text-lg">Salary range</span>
               </label>
               <input
                 type="text"
                 name="salary"
-                placeholder="Enter salary range"
+                placeholder="12000 - 20000"
                 className="input input-bordered"
                 required
               />
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Job Posting Date</span>
+                <span className="label-text text-lg">Job Posting Date</span>
               </label>
-              <input
-                type="text"
+              <DatePicker
                 name="postingDate"
-                placeholder="Enter rating"
-                className="input input-bordered"
+                placeholderText="DDD/MMM/YYY"
+                className="input input-bordered w-full"
                 required
+                selected={startDate}
+                onChange={(date) => setStartDate(date)}
               />
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Application Deadline</span>
+                <span className="label-text text-lg">Application Deadline</span>
               </label>
-              <input
-                type="text"
+              <DatePicker
                 name="deadline"
-                placeholder="Enter rating"
-                className="input input-bordered"
+                placeholderText="DDD/MMM/YYY"
+                className="input input-bordered w-full"
                 required
+                selected={endDate}
+                onChange={(date) => setEndDate(date)}
               />
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Job Applicants</span>
+                <span className="label-text text-lg">Job Applicants</span>
               </label>
               <input
                 type="text"
                 name="applicants"
                 placeholder="Enter rating"
-                defaultValue='0'
+                defaultValue="0"
                 readOnly
                 className="input input-bordered"
                 required
@@ -148,7 +162,7 @@ const AddJob = () => {
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Description</span>
+                <span className="label-text text-lg">Description</span>
               </label>
               <input
                 type="text"
@@ -160,7 +174,7 @@ const AddJob = () => {
             </div>
             <div className="form-control lg:col-span-2">
               <label className="label">
-                <span className="label-text">Job Banner Link</span>
+                <span className="label-text text-lg">Job Banner Link</span>
               </label>
               <input
                 type="text"
@@ -173,7 +187,7 @@ const AddJob = () => {
             <div className="form-control lg:col-span-2 ">
               <button
                 type="submit"
-                className="py-3 bg-slate-700  text-white font-medium px-5 rounded-md"
+                className="py-3 bg-blue-500  text-white font-medium px-5 rounded-md"
               >
                 Add
               </button>
