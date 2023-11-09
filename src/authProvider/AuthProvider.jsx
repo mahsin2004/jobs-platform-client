@@ -24,19 +24,6 @@ const AuthProvider = ({ children }) => {
     const unsubScribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setLoading(false);
-      console.log("current user:", currentUser);
-      const userEmail = currentUser?.email || user?.email;
-      const loggedUser = { email: userEmail };
-      // if user exist then create access token....
-      if (currentUser) {
-        axiosSecure.post("/jwt", loggedUser).then((res) => {
-          console.log(res.data);
-        });
-      } else {
-        axiosSecure.post("/tokenClear", loggedUser).then((res) => {
-          console.log(res.data);
-        });
-      }
     });
     return () => {
       unsubScribe();
