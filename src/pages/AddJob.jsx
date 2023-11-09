@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useAuth from "../hook/useAuth";
 import useAxiosSecure from "../hook/useAxiosSecure";
 import DatePicker from "react-datepicker";
@@ -10,6 +10,10 @@ const AddJob = () => {
   const axiosSecure = useAxiosSecure();
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
+
+  useEffect(() => {
+    document.title = 'Add Jobs | Online Jobs'
+  },[])
 
   const addProduct = (e) => {
     e.preventDefault();

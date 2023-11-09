@@ -7,38 +7,46 @@ const Footer = () => {
   return (
     <footer className=" bg-gradient-to-tr from-gray-800 to-gray-800 ">
       <div className="max-w-[1440px] px-16 py-14 mx-auto ">
-        <div className="lg:flex lg:flex-row-reverse lg:justify-between lg:items-end">
-          <div className="lg:flex lg:gap-48 lg:items-center lg:justify-center">
-            <div className="flex gap-2 items-center">
-              <img
-                className="w-10"
-                src="https://i.postimg.cc/8CFSXmHs/image.png"
-                alt="logo"
-              />
-              <p className="normal-case text-[22px] text-white">Dream Jobs</p>
+        <div className="">
+          <div className="flex justify-center">
+            <div className="">
+              <div className="flex flex-col items-center">
+                <img
+                  className="w-20 mb-1"
+                  src="https://i.postimg.cc/8CFSXmHs/image.png"
+                  alt="logo"
+                />
+                <p className=" text-3xl font-medium text-white">Online Jobs</p>
+              </div>
             </div>
           </div>
 
-          <div className="text-white mt-10">
-            <p className="text-xl lg:text-2xl pb-2 font-medium">Contact Us</p>
-            <div className="lg:flex lg:gap-10">
-              <div className="flex items-center gap-1">
-                <span className="text-lg">
-                  <BsTelephoneFill></BsTelephoneFill>
-                </span>
-                <p>+8801741156408</p>
-              </div>
-              <div className="flex items-center gap-1">
-                <span className="text-xl">
-                  <MdEmail></MdEmail>
-                </span>
-                <p>info@gmail.com</p>
-              </div>
-              <div className="flex items-center gap-1">
-                <span className="text-xl">
-                  <MdLocationOn></MdLocationOn>
-                </span>
-                <p>72, Wall street, King Road, Dhaka</p>
+          <div className="text-white mt-8 text-center">
+            <p className="text-xl lg:text-2xl pb-2 font-semibold">Address</p>
+            <div className="flex justify-center">
+              <div className="lg:flex lg:gap-8 text-center space-y-2">
+                <div className="flex justify-center">
+                  <div className="flex items-center gap-1">
+                    <span className="text-lg">
+                      <BsTelephoneFill></BsTelephoneFill>
+                    </span>
+                    <p>+8801741156408</p>
+                  </div>
+                </div>
+                <div className="flex justify-center">
+                  <div className="flex items-center gap-1">
+                    <span className="text-xl">
+                      <MdEmail></MdEmail>
+                    </span>
+                    <p>info@gmail.com</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-1">
+                  <span className="text-xl">
+                    <MdLocationOn></MdLocationOn>
+                  </span>
+                  <p>72, Wall street, King Road, Dhaka</p>
+                </div>
               </div>
             </div>
           </div>

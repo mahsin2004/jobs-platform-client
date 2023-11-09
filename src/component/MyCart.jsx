@@ -15,18 +15,20 @@ const MyCart = ({ job }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:5000/jobs/${id}`).then((res) => {
-          console.log(res.data);
-          if (res.data.deletedCount > 0) {
-            Swal.fire({
-              title: "Successfully",
-              text: "Deleted",
-              icon: "success",
-              confirmButtonText: "oky",
-            });
-            window.location.reload();
-          }
-        });
+        axios
+          .delete(`https://jobs-platform-server.vercel.app/jobs/${id}`)
+          .then((res) => {
+            console.log(res.data);
+            if (res.data.deletedCount > 0) {
+              Swal.fire({
+                title: "Successfully",
+                text: "Deleted",
+                icon: "success",
+                confirmButtonText: "oky",
+              });
+              window.location.reload();
+            }
+          });
       }
     });
   };

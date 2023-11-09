@@ -1,6 +1,11 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const Error = () => {
+  useEffect(() => {
+    document.title = 'Error | Online Jobs'
+  },[])
+
   return (
     <div>
       <section className="flex items-center h-full p-8 dark:bg-gray-900 dark:text-gray-100">

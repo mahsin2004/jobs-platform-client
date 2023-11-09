@@ -20,16 +20,16 @@ const Category = () => {
           <Tab className="rounded-md  bg-gray-600 text-white px-4 py-2">
             <Link>All Jobs</Link>
           </Tab>
-          <Tab className=" rounded-md border-none bg-gray-600 text-white px-4 py-2">
+          <Tab className=" rounded-md bg-gray-600 text-white px-4 py-2">
             <Link>Remote</Link>
           </Tab>
-          <Tab className="rounded-md border-none bg-gray-600 text-white px-4 py-2">
+          <Tab className="rounded-md bg-gray-600 text-white px-4 py-2">
             <Link>On Site</Link>
           </Tab>
-          <Tab className="rounded-md border-none bg-gray-600 text-white px-4 py-2">
+          <Tab className="rounded-md  bg-gray-600 text-white px-4 py-2">
             <Link>Hybrid</Link>
           </Tab>
-          <Tab className="rounded-md border-none bg-gray-600 text-white px-4 py-2">
+          <Tab className="rounded-md  bg-gray-600 text-white px-4 py-2">
             <Link>Part Time</Link>
           </Tab>
         </TabList>

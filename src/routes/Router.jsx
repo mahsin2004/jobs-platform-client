@@ -13,7 +13,6 @@ import PrivetRoute from "./PrivetRoute";
 import Details from "../component/Details";
 import Update from "../component/Update";
 
-
 const Router = createBrowserRouter([
   {
     path: "/",
@@ -22,47 +21,65 @@ const Router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home></Home>
+        element: <Home></Home>,
       },
       {
         path: "/login",
-        element: <Login></Login>
+        element: <Login></Login>,
       },
       {
         path: "/register",
-        element: <Register></Register>
+        element: <Register></Register>,
       },
       {
         path: "/addJob",
-        element: <PrivetRoute><AddJob></AddJob></PrivetRoute>
+        element: (
+          <PrivetRoute>
+            <AddJob></AddJob>
+          </PrivetRoute>
+        ),
       },
       {
         path: "/jobs", //All jobs
-        element: <Jobs></Jobs>
+        element: <Jobs></Jobs>,
       },
       {
         path: "/blog",
-        element: <Blog></Blog>
+        element: <Blog></Blog>,
       },
       {
         path: "/appliedJobs",
-        element: <PrivetRoute><AppliedJobs></AppliedJobs></PrivetRoute>
+        element: (
+          <PrivetRoute>
+            <AppliedJobs></AppliedJobs>
+          </PrivetRoute>
+        ),
       },
       {
         path: "/myJobs",
-        element: <PrivetRoute><MyJobs></MyJobs></PrivetRoute> 
+        element: (
+          <PrivetRoute>
+            <MyJobs></MyJobs>
+          </PrivetRoute>
+        ),
       },
       {
         path: "/details/:id",
-        element: <PrivetRoute><Details></Details></PrivetRoute>,
-        loader: ({params}) => fetch(`http://localhost:5000/jobs/${params.id}`)
+        element: (
+          <PrivetRoute>
+            <Details></Details>
+          </PrivetRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`https://jobs-platform-server.vercel.app/jobs/${params.id}`),
       },
       {
         path: "/update/:id",
-        element:<Update></Update>,
-        loader: ({params}) => fetch(`http://localhost:5000/jobs/${params.id}`)
-      }
-    ]
+        element: <Update></Update>,
+        loader: ({ params }) =>
+          fetch(`https://jobs-platform-server.vercel.app/jobs/${params.id}`),
+      },
+    ],
   },
 ]);
 

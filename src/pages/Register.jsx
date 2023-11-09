@@ -2,9 +2,14 @@ import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 import useAuth from "../hook/useAuth";
 import Social from "../component/Social";
+import { useEffect } from "react";
 
 const Register = () => {
   const { createUser, profileUpdate } = useAuth();
+
+  useEffect(() => {
+    document.title = 'Register | Online Jobs'
+  },[])
 
   const handleRegister = (e) => {
     e.preventDefault();

@@ -1,4 +1,9 @@
+import { useEffect } from "react";
+
 const Blog = () => {
+  useEffect(() => {
+    document.title = 'Blogs | Online Jobs'
+  },[])
   return (
     <div className="max-w-[85rem] px-4 sm:px-6 lg:px-8 mx-auto">
       <div

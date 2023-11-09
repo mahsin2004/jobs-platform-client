@@ -2,11 +2,16 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import useAuth from "../hook/useAuth";
 import Social from "../component/Social";
+import { useEffect } from "react";
 
 const Login = () => {
   const { userLogin } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    document.title = 'Log in | Online Jobs'
+  },[])
 
   const handleLogin = (e) => {
     e.preventDefault();

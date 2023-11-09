@@ -116,7 +116,7 @@ const Navbar = () => {
                 src="https://i.postimg.cc/L8Py1V1S/icon3.png"
                 alt="logo"
               />
-              <p className="normal-case text-[22px]">Dream Jobs</p>
+              <p className="normal-case text-[22px]">Online Jobs</p>
             </div>
           </div>
         </div>
