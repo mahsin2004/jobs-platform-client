@@ -1,4 +1,4 @@
-## Dream Jobs
+## Online Jobs
 
 ## [client-side live link](https://jobs-platform-client.web.app)
 

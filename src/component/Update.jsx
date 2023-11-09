@@ -7,11 +7,10 @@ import axios from "axios";
 
 const Update = () => {
   const { user } = useAuth();
-  const {id} = useParams();
+  const { id } = useParams();
   const [jobs, setJobs] = useState([]);
   const axiosSecure = useAxiosSecure();
-  const job = jobs.find(job => job._id === id)
-
+  const job = jobs.find((job) => job._id === id);
 
   useEffect(() => {
     axiosSecure.get("/jobs").then((res) => {
@@ -49,17 +48,19 @@ const Update = () => {
       user_name,
     };
     console.log(brand);
-    axios.put(`https://jobs-platform-server.vercel.app/jobs/${id}`, brand).then((res) => {
-      console.log(res.data);
-      if (res.data.modifiedCount> 0) {
-        Swal.fire({
-          title: "Successfully",
-          text: "Updated",
-          icon: "success",
-          confirmButtonText: "oky",
-        });
-      }
-    });
+    axios
+      .put(`https://jobs-platform-server.vercel.app/jobs/${id}`, brand)
+      .then((res) => {
+        console.log(res.data);
+        if (res.data.modifiedCount > 0) {
+          Swal.fire({
+            title: "Successfully",
+            text: "Updated",
+            icon: "success",
+            confirmButtonText: "oky",
+          });
+        }
+      });
   };
 
   return (
@@ -146,12 +147,14 @@ const Update = () => {
               <label className="label">
                 <span className="label-text text-lg">Application Deadline</span>
               </label>
-              <input type="text"
+              <input
+                type="text"
                 name="deadline"
                 placeholder="DDD/MMM/YYY"
                 className="input input-bordered w-full"
                 required
-                defaultValue={job?.application_deadline}/>
+                defaultValue={job?.application_deadline}
+              />
             </div>
             <div className="form-control">
               <label className="label">

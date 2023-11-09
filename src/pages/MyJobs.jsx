@@ -2,34 +2,16 @@ import { useEffect, useState } from "react";
 import useAxiosSecure from "../hook/useAxiosSecure";
 import useAuth from "../hook/useAuth";
 import MyCart from "../component/MyCart";
-import { useNavigate } from "react-router-dom";
 
 const MyJobs = () => {
   const [jobs, setJobs] = useState([]);
-  const { user, logOutUser } = useAuth();
+  const { user, } = useAuth();
   const axiosSecure = useAxiosSecure();
 
-  const navigate = useNavigate();
-  useEffect(() => {
-    document.title = "My jobs | Online jobs";
-    axiosSecure.interceptors.response.use(
-      (res) => {
-        return res;
-      },
-      (error) => {
-        if (error.response.status === 401 || error.response.status === 403) {
-          logOutUser()
-            .then(() => {
-              navigate("/login");
-            })
-            .catch((error) => console.error(error));
-        }
-      }
-    );
-  }, [logOutUser, navigate, axiosSecure]);
+ 
 
   useEffect(() => {
-    axiosSecure.get(`/jobs/?email=${user.email}`).then((res) => {
+    axiosSecure.get("/jobs").then((res) => {
       setJobs(res.data);
       console.log(res);
     });

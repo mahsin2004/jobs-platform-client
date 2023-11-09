@@ -2,44 +2,22 @@ import { useEffect, useState } from "react";
 import useAxiosSecure from "../hook/useAxiosSecure";
 import AppliedCard from "../component/AppliedCard";
 import jsPDF from "jspdf";
-import useAuth from "../hook/useAuth";
 import { FaDownload } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
 import html2canvas from "html2canvas";
 
 const AppliedJobs = () => {
-  const { user, logOutUser } = useAuth();
   const [applied, setApplied] = useState([]);
   const [filteredJobs, setFilteredJobs] = useState([]);
   const [noDataFound, setNoDataFound] = useState(false);
   const axiosSecure = useAxiosSecure();
 
-  // JWT Verification Response Handle
-  const navigate = useNavigate();
-  useEffect(() => {
-    document.title = "Applied Jobs | Online Jobs";
-    axiosSecure.interceptors.response.use(
-      (res) => {
-        return res;
-      },
-      (error) => {
-        if (error.response.status === 401 || error.response.status === 403) {
-          logOutUser()
-            .then(() => {
-              navigate("/login");
-            })
-            .catch((error) => console.error(error));
-        }
-      }
-    );
-  }, [logOutUser, navigate, axiosSecure]);
 
   useEffect(() => {
-    axiosSecure.get(`/applied/?email=${user.email}`).then((res) => {
+    axiosSecure.get("/applied").then((res) => {
       setApplied(res.data);
       console.log(res);
     });
-  }, [axiosSecure, user]);
+  }, [axiosSecure]);
   console.log(applied);
 
   const takeValue = (e) => {
