@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 const Details = () => {
   const { user } = useAuth();
   const [jobs, setJobs] = useState([]);
+  const [applied, setApplied] = useState([]);
   const { id } = useParams();
   const axiosSecure = useAxiosSecure();
 
@@ -18,41 +19,84 @@ const Details = () => {
   console.log(todayDate);
 
   useEffect(() => {
+    axiosSecure.get("/applied").then((res) => {
+      setApplied(res.data);
+      console.log(res);
+    });
+  }, [axiosSecure]);
+  console.log(applied)
+
+  useEffect(() => {
     axiosSecure.get("/jobs").then((res) => {
       setJobs(res.data);
       console.log(res);
     });
   }, [axiosSecure]);
 
-  const job = jobs.filter((job) => job._id === id);
-  console.log(job);
+  const job = jobs.find((job) => job._id === id);
+  const addedId = applied?.map(job => job.id) || [];
+console.log(addedId);
+
+const alreadyAdded = addedId.includes(id);
+console.log(alreadyAdded);
 
   const handleApply = (e) => {
     e.preventDefault();
     const from = e.target;
     const email = from.email.value;
-    const name = from.name.value;
+    const user_name = from.name.value;
     const resume_link = from.resumeLink.value;
+    const application_deadline = job.application_deadline
+    const job_description = job.job_description
+    const job_banner = job.job_banner
+    const job_posting_date = job.job_posting_date
+    const job_title = job.job_title
+    const logo = job.logo
+    const salary_range = job.salary_range
+    const job_category = job.job_category
+    const id = job._id
+
     const apply = {
-      id,
+      application_deadline,
+      job_category,
       email,
-      name,
+      job_banner,
+      job_description,
+      job_posting_date,
+      job_title,
+      logo,
+      salary_range,
+      user_name,
       resume_link,
+      id
     };
 
-    const userMatch = job.map((job) => job.email === user.email);
-    console.log(userMatch[0]);
+    const userMatch = job.email === user.email
+    console.log(userMatch);
 
-    const applicationDeadline = job.map((job) => job.application_deadline);
-    console.log(applicationDeadline[0]);
+    const applicationDeadline =  job.application_deadline;
+    console.log(applicationDeadline);
 
-    if (userMatch[0]) {
+    if (userMatch) {
       const modal = document.getElementById("my_modal_1");
       modal.close();
       from.reset();
       Swal.fire({
         icon: "error",
         title: "Do not apply for your own job.",
+        text: "Failed",
+        confirmButtonText: "OK",
+      });
+      return;
+    }
+
+    if (alreadyAdded) {
+      const modal = document.getElementById("my_modal_1");
+      modal.close();
+      from.reset();
+      Swal.fire({
+        icon: "error",
+        title: "Already applied",
         text: "Failed",
         confirmButtonText: "OK",
       });
@@ -94,13 +138,13 @@ const Details = () => {
         <div className="relative">
           <img
             className="w-full h-auto rounded-t-xl"
-            src={job[0]?.job_banner}
+            src={job?.job_banner}
             alt="Image Description"
           />
           <div className=" absolute -mt-11 ml-10">
             <img
               className="w-24 rounded-2xl border-4"
-              src={job[0]?.logo}
+              src={job?.logo}
               alt=""
             />
           </div>
@@ -108,16 +152,16 @@ const Details = () => {
 
         <div className="px-6 pb-8 pt-14">
           <h3 className="text-2xl font-bold text-gray-800 dark:text-white">
-            {job[0]?.job_title}
+            {job?.job_title}
           </h3>
           <p className="text-xl font-bold text-gray-800 dark:text-white">
-            {job[0]?.salary_range}
+            {job?.salary_range}
           </p>
           <p className="mt-1 text-lg text-gray-800 dark:text-gray-400">
-            {job[0]?.job_description}
+            {job?.job_description}
           </p>
           <p className="mt-5 text-lg text-gray-800 dark:text-gray-500">
-            Applicants: {job[0]?.job_applicants_number}
+            Applicants: {job?.job_applicants_number}
           </p>
           <div className="text-center">
             <button

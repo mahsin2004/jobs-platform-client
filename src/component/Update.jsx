@@ -49,7 +49,7 @@ const Update = () => {
       user_name,
     };
     console.log(brand);
-    axios.put(`https://jobs-platform-server.vercel.app/jobs/${id}`, brand).then((res) => {
+    axios.put(`http://localhost:5000/jobs/${id}`, brand).then((res) => {
       console.log(res.data);
       if (res.data.modifiedCount> 0) {
         Swal.fire({

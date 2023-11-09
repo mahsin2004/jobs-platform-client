@@ -5,20 +5,30 @@ import Swal from "sweetalert2";
 
 const MyCart = ({ job }) => {
   const handleDelete = (id) => {
-    axios.delete(`https://jobs-platform-server.vercel.app/jobs/${id}`).then((res) => {
-      console.log(res.data);
-      if (res.data.deletedCount > 0) {
-        Swal.fire({
-          title: "Successfully",
-          text: "Deleted",
-          icon: "success",
-          confirmButtonText: "oky",
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios.delete(`http://localhost:5000/jobs/${id}`).then((res) => {
+          console.log(res.data);
+          if (res.data.deletedCount > 0) {
+            Swal.fire({
+              title: "Successfully",
+              text: "Deleted",
+              icon: "success",
+              confirmButtonText: "oky",
+            });
+            window.location.reload();
+          }
         });
-        window.location.reload();
       }
-      
     });
-    
   };
   const { job_posting_date, job_title, salary_range, user_name, _id } = job;
   return (

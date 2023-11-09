@@ -42,7 +42,7 @@ const MyJobs = () => {
   return (
     <div className="max-w-[1440px] mx-auto px-6 lg:px-16 py-14">
       <div className="mb-14">
-        <h1 className="text-2xl lg:text-4xl font-medium text-center">
+        <h1 className="text-3xl lg:text-4xl font-semibold text-center">
           My Jobs
         </h1>
        </div>
