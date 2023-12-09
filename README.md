@@ -20,12 +20,6 @@ Install dependencies: npm install</li>
   <li>start the development server with (npm run start)</li>
 </ul>
 
-**To get started developing right away:**
-
-<ul>
-<li>install all project dependencies with (npm install)</li>
-
-</ul>
 
 ## Features :
 
