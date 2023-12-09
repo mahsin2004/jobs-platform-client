@@ -9,7 +9,7 @@
 ## Installation
 
 **Clone the repository:** <br/>
-git clone https://github.com/mahsin2004/brand-shop-server
+git clone https://github.com/mahsin2004/jobs-platform-client
 
 <ul>
 <li>
