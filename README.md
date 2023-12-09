@@ -1,14 +1,29 @@
 ## Online Jobs
 
+## Description : CareerBuilder is a versatile job-finding platform that empowers users to search for jobs based on their skills, and preferences.
+
 **[Server Side Repo Link](https://github.com/mahsin2004/jobs-platform-server)**
 
 **[Live Link](https://jobs-platform-client.web.app)**
+
+## Installation
+
+**Clone the repository:** <br/>
+git clone https://github.com/mahsin2004/brand-shop-server
+
+<ul>
+<li>
+Install dependencies: npm install</li>
+<li>
+Change into the project directory: cd your-project</li>
+  <li>start the development server with (npm run start)</li>
+</ul>
 
 **To get started developing right away:**
 
 <ul>
 <li>install all project dependencies with (npm install)</li>
-<li>start the development server with (npm run start)</li>
+
 </ul>
 
 ## Features :
