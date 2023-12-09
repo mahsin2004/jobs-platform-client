@@ -12,10 +12,11 @@
 git clone https://github.com/mahsin2004/jobs-platform-client
 
 <ul>
+  <li>
+Change into the project directory: cd your-project</li>
 <li>
 Install dependencies: npm install</li>
-<li>
-Change into the project directory: cd your-project</li>
+
   <li>start the development server with (npm run start)</li>
 </ul>
 
