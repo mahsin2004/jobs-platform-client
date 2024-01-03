@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 const Cart = ({ job }) => {
   const {
-    application_deadline,
-    job_applicants_number,
+    // application_deadline,
+    // job_applicants_number,
     job_posting_date,
     job_title,
     salary_range,
@@ -37,11 +37,11 @@ const Cart = ({ job }) => {
                 ${salary_range}
               </p>
             </div>
-            <div>
+            {/* <div>
               <h4 className="text-base">
                 <p className="text-base">Applicants:</p> {job_applicants_number}
               </h4>
-            </div>
+            </div> */}
           </div>
 
           <div className="flex justify-between items-center">
@@ -52,10 +52,10 @@ const Cart = ({ job }) => {
                 </button>
               </Link>
             </div>
-            <div>
+            {/* <div>
               <p className="text-sm">Deadline :</p>
               <p className="text-base">{application_deadline}</p>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

@@ -1,15 +1,48 @@
+import axios from "axios";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const AppliedCard = ({ job }) => {
   console.log(job);
 
   const {
-    application_deadline,
+    // application_deadline,
+    _id,
     job_posting_date,
     job_title,
     salary_range,
     job_category,
   } = job;
+
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .delete(`https://jobs-platform-server.vercel.app/applied/${id}`)
+          .then((res) => {
+            console.log(res.data);
+            if (res.data.deletedCount > 0) {
+              Swal.fire({
+                title: "Successfully",
+                text: "Deleted",
+                icon: "success",
+                confirmButtonText: "oky",
+              });
+              window.location.reload();
+            }
+          });
+      }
+    });
+  };
 
   return (
     <div>
@@ -27,9 +60,11 @@ const AppliedCard = ({ job }) => {
           <h3 className="text-sm lg:border-r-2 text-center">
             <span className="lg:hidden">post date:</span> {job_posting_date}
           </h3>
-          <p className="text-sm text-center">
-            <span className="lg:hidden">deadline:</span> {application_deadline}
-          </p>
+          <div className="text-center lg:border-r-2">
+            <Link className="text-sm  font-medium text-blue-500 hover:text-blue-700">
+              <button onClick={() => handleDelete(_id)}>Delete</button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>

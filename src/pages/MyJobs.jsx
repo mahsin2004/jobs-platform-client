@@ -8,7 +8,9 @@ const MyJobs = () => {
   const { user, } = useAuth();
   const axiosSecure = useAxiosSecure();
 
- 
+  useEffect(() => {
+    document.title = 'My Jobs | Online Jobs'
+  },[])
 
   useEffect(() => {
     axiosSecure.get("/jobs").then((res) => {

@@ -7,11 +7,10 @@ const Blog = () => {
   return (
     <div className="max-w-[85rem] px-4 sm:px-6 lg:px-8 mx-auto">
       <div
-        className="hero h-[300px] rounded-b-lg"
-        style={{
-          backgroundImage: "url(https://i.postimg.cc/xT7P2RnM/blog.jpg)",
-        }}
-      ></div>
+        className=""
+      >
+        <img className="h-[500px] w-full -mt-[72px]" src="https://i.postimg.cc/xT7P2RnM/blog.jpg" alt="" />
+      </div>
       <div className=" py-5 lg:py-16">
         <div>
           <p className="mb-5 inline-flex items-center gap-1.5 border-l-8 py-3 px-3 rounded-md text-4xl font-semibold  text-gray-800 dark:bg-gray-800 dark:text-gray-200">

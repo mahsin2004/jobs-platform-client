@@ -4,8 +4,13 @@ import AppliedCard from "../component/AppliedCard";
 import jsPDF from "jspdf";
 import { FaDownload } from "react-icons/fa";
 import html2canvas from "html2canvas";
+import useAuth from "../hook/useAuth";
 
 const AppliedJobs = () => {
+  useEffect(() => {
+    document.title = 'Applied Jobs | Online Jobs'
+  },[])
+  const { user } = useAuth();
   const [applied, setApplied] = useState([]);
   const [filteredJobs, setFilteredJobs] = useState([]);
   const [noDataFound, setNoDataFound] = useState(false);
@@ -13,11 +18,11 @@ const AppliedJobs = () => {
 
 
   useEffect(() => {
-    axiosSecure.get("/applied").then((res) => {
+    axiosSecure.get(`/applied/${user.email}`).then((res) => {
       setApplied(res.data);
       console.log(res);
     });
-  }, [axiosSecure]);
+  }, [axiosSecure, user]);
   console.log(applied);
 
   const takeValue = (e) => {
@@ -95,7 +100,7 @@ const AppliedJobs = () => {
             <p className="border-r-2 ">Job Tittle</p>
             <p className="border-r-2 ">Salary Range</p>
             <p className="border-r-2 ">Job Posting Date</p>
-            <p className="">Application Deadline</p>
+            <p className="">Action</p>
           </div>
         </div>
         <div>

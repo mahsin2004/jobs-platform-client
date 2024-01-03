@@ -33,11 +33,12 @@ const Details = () => {
     });
   }, [axiosSecure]);
 
-  const job = jobs.find((job) => job._id === id);
-  const addedId = applied?.map(job => job.id) || [];
-console.log(addedId);
+  const job = jobs?.find((job) => job._id === id);
+  const addedId = applied?.find(ap => ap.id === id);
+console.log(addedId?.id);
+console.log(id);
 
-const alreadyAdded = addedId.includes(id);
+const alreadyAdded = addedId?.id === id;
 console.log(alreadyAdded);
 
   const handleApply = (e) => {
@@ -103,18 +104,18 @@ console.log(alreadyAdded);
       return;
     }
 
-    if (!(todayDate < applicationDeadline[0])) {
-      const modal = document.getElementById("my_modal_1");
-      modal.close();
-      from.reset();
-      Swal.fire({
-        icon: "error",
-        title: "Application Deadline Over",
-        text: "Failed",
-        confirmButtonText: "OK",
-      });
-      return;
-    }
+    // if (!(todayDate < applicationDeadline[0])) {
+    //   const modal = document.getElementById("my_modal_1");
+    //   modal.close();
+    //   from.reset();
+    //   Swal.fire({
+    //     icon: "error",
+    //     title: "Application Deadline Over",
+    //     text: "Failed",
+    //     confirmButtonText: "OK",
+    //   });
+    //   return;
+    // }
 
     axiosSecure.post("/applied", apply).then((res) => {
       console.log(res.data);
