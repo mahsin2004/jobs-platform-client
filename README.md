@@ -1,19 +1,27 @@
 ## Online Jobs
 
-**[Client side Repo Link](https://github.com/mahsin2004/jobs-platform-client)**
+## Description : CareerBuilder is a versatile job-finding platform that empowers users to search for jobs based on their skills, and preferences.
 
 **[Server Side Repo Link](https://github.com/mahsin2004/jobs-platform-server)**
 
 **[Live Link](https://jobs-platform-client.web.app)**
 
-**To get started developing right away:**
+## Installation
+
+**Clone the repository:** <br/>
+git clone https://github.com/mahsin2004/jobs-platform-client
 
 <ul>
-<li>install all project dependencies with (npm install)</li>
-<li>start the development server with (npm run start)</li>
+  <li>
+Change into the project directory: cd your-project</li>
+<li>
+Install dependencies: npm install</li>
+
+  <li>start the development server with (npm run start)</li>
 </ul>
 
-**Features :**
+
+## Features :
 
 ## 1. => In this project, I used a Server and Database(MongoDB), Storing Data and Loading Data From the Database.
 ## 2. => using some third-party library such as react tabs, react helmet, date and time picker framer motion etc.
